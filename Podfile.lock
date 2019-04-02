@@ -1,0 +1,16 @@
+PODS:
+  - SVGgh (1.9.2)
+
+DEPENDENCIES:
+  - SVGgh
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SVGgh
+
+SPEC CHECKSUMS:
+  SVGgh: 648b7700f0f219c6f4d39bb94a5ca7e1a109a1c3
+
+PODFILE CHECKSUM: 525afb3153bb93bb483b2c8cad9f62e79a1d7166
+
+COCOAPODS: 1.5.3
