@@ -36,6 +36,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             heightTextField.text ?? "") else { return }
         
         faceA.widthAnchor.constraint(equalToConstant: CGFloat(truncating: length))
+        faceA.heightAnchor.constraint(equalToConstant: CGFloat(truncating: height))
+        faceB.widthAnchor.constraint(equalToConstant: CGFloat(truncating: width))
+        
+        view.layoutIfNeeded()
+        view.layoutSubviews()
         
         createPdfFromView(aView: self.view, saveToDocumentsWithFileName: "MC.pdf")
         
@@ -73,9 +78,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
             debugPrint(documentsFileName)
             pdfData.write(toFile: documentsFileName, atomically: true)
         }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        view.layoutIfNeeded()
     }
 }
