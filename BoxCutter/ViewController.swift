@@ -9,58 +9,36 @@
 import UIKit
 import PDFKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var lengthTextField: UITextField!
+    @IBOutlet var widthTextField: UITextField!
+    @IBOutlet var heightTextField: UITextField!
+    
+    @IBOutlet var faceA: FaceView!
+    @IBOutlet var faceB: FaceView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        let box = UIView(frame: frame)
-        box.backgroundColor = .black
-        view.addSubview(box)
-        view.backgroundColor = .clear
-        
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let filePath = (documentsDirectory as NSString).appendingPathComponent("MC.pdf") as String
-        
-        let pdfTitle = "Master Carton"
-        let pdfMetadata = [
-            // The name of the application creating the PDF.
-            kCGPDFContextCreator: "Your iOS App",
-            
-            // The name of the PDF's author.
-            kCGPDFContextAuthor: "Foo Bar",
-            
-            // The title of the PDF.
-            kCGPDFContextTitle: "Lorem Ipsum",
-            
-            // Encrypts the document with the value as the owner password. Used to enable/disable different permissions.
-            kCGPDFContextOwnerPassword: "myPassword123"
-        ]
-        
-        // Creates a new PDF file at the specified path.
-        UIGraphicsBeginPDFContextToFile(filePath, CGRect.zero, pdfMetadata)
-        
-        // Creates a new page in the current PDF context.
-        UIGraphicsBeginPDFPage()
-        
-        // Default size of the page is 612x72.
-        let pageSize = UIGraphicsGetPDFContextBounds().size
-        let font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        
-        // Let's draw the title of the PDF on top of the page.
-        let attributedPDFTitle = NSAttributedString(string: pdfTitle, attributes: [NSAttributedString.Key.font: font])
-        let stringSize = attributedPDFTitle.size()
-        let stringRect = CGRect(x: (pageSize.width / 2 - stringSize.width / 2), y: 20, width: stringSize.width, height: stringSize.height)
-        attributedPDFTitle.draw(in: stringRect)
-        
-        // Closes the current PDF context and ends writing to the file.
-        UIGraphicsEndPDFContext()
-        
     }
     
     @IBAction func viewPDF(_ sender: Any) {
+        
+        guard let length = NumberFormatter().number(from:
+            lengthTextField.text ?? "") else { return }
+        
+        guard let width = NumberFormatter().number(from:
+            widthTextField.text ?? "") else { return }
+        
+        guard let height = NumberFormatter().number(from:
+            heightTextField.text ?? "") else { return }
+        
+        faceA.widthAnchor.constraint(equalToConstant: CGFloat(truncating: length))
+        
+        createPdfFromView(aView: self.view, saveToDocumentsWithFileName: "MC.pdf")
+        
         // Create and add a PDFView to the view hierarchy.
         let pdfView = PDFView(frame: view.bounds)
         pdfView.autoScales = true
@@ -77,5 +55,27 @@ class ViewController: UIViewController {
         let vc = UIActivityViewController(activityItems: [document as Any], applicationActivities: nil)
         self.present(vc, animated: true, completion: nil)
         
+    }
+    
+    func createPdfFromView(aView: UIView, saveToDocumentsWithFileName fileName: String)
+    {
+        let pdfData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, aView.bounds, nil)
+        UIGraphicsBeginPDFPage()
+        
+        guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
+        
+        aView.layer.render(in: pdfContext)
+        UIGraphicsEndPDFContext()
+        
+        if let documentDirectories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            let documentsFileName = documentDirectories + "/" + fileName
+            debugPrint(documentsFileName)
+            pdfData.write(toFile: documentsFileName, atomically: true)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        view.layoutIfNeeded()
     }
 }

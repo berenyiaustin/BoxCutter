@@ -10,6 +10,7 @@
 		25994B3F6E732A9A255285FC /* Pods_BoxCutterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70AB2CFB5E7E2BA40C4B2CC3 /* Pods_BoxCutterUITests.framework */; };
 		4E713D8CDA3FF920D42C4E4F /* Pods_BoxCutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00B7FE13CEE5831430DC023 /* Pods_BoxCutter.framework */; };
 		5FE2BE57C77F459382F2A47D /* Pods_BoxCutterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0D1BBE505883D26274DEBE /* Pods_BoxCutterTests.framework */; };
+		90366C772252EFFC00E7305D /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90366C762252EFFC00E7305D /* FaceView.swift */; };
 		90804D812252B3BC00394072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90804D802252B3BC00394072 /* AppDelegate.swift */; };
 		90804D832252B3BC00394072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90804D822252B3BC00394072 /* ViewController.swift */; };
 		90804D862252B3BC00394072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90804D842252B3BC00394072 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		532DD184D0ACE3E456CDEA47 /* Pods-BoxCutterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxCutterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoxCutterTests/Pods-BoxCutterTests.release.xcconfig"; sourceTree = "<group>"; };
 		70AB2CFB5E7E2BA40C4B2CC3 /* Pods_BoxCutterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoxCutterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F0D1BBE505883D26274DEBE /* Pods_BoxCutterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoxCutterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90366C762252EFFC00E7305D /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		90804D7D2252B3BC00394072 /* BoxCutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxCutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90804D802252B3BC00394072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90804D822252B3BC00394072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				90804D802252B3BC00394072 /* AppDelegate.swift */,
 				90804D822252B3BC00394072 /* ViewController.swift */,
+				90366C762252EFFC00E7305D /* FaceView.swift */,
 				90804D842252B3BC00394072 /* Main.storyboard */,
 				90804D872252B3BD00394072 /* Assets.xcassets */,
 				90804D892252B3BD00394072 /* LaunchScreen.storyboard */,
@@ -393,6 +396,7 @@
 			files = (
 				90804D832252B3BC00394072 /* ViewController.swift in Sources */,
 				90804D812252B3BC00394072 /* AppDelegate.swift in Sources */,
+				90366C772252EFFC00E7305D /* FaceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
