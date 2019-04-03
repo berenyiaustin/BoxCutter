@@ -46,8 +46,18 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVc-YR-ebd" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="126" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be careful opening your package. Your products don't like being poked by knives." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up3-eX-Q8h">
+                                                        <rect key="frame" x="21.333333333333336" y="1.9999999999999998" width="83.333333333333314" height="2.6666666666666661"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="2"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="Up3-eX-Q8h" firstAttribute="centerX" secondItem="bVc-YR-ebd" secondAttribute="centerX" id="BZi-dI-hXr"/>
+                                                    <constraint firstItem="Up3-eX-Q8h" firstAttribute="top" secondItem="bVc-YR-ebd" secondAttribute="top" constant="2" id="JRk-Gm-j3F"/>
                                                     <constraint firstAttribute="height" constant="128" id="Sds-BH-UdT"/>
                                                 </constraints>
                                             </view>
