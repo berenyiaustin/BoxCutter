@@ -38,16 +38,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         heightTextField.delegate = self
         scrollView.delegate = self
         
-        faceA.translatesAutoresizingMaskIntoConstraints = false
-        faceB.translatesAutoresizingMaskIntoConstraints = false
+        //faceA.translatesAutoresizingMaskIntoConstraints = false
+        //faceB.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,UIView.AutoresizingMask.flexibleHeight]
-        scrollView.minimumZoomScale = 0.01
-        scrollView.minimumZoomScale = 50
+        scrollView.minimumZoomScale = 1
+        scrollView.maximumZoomScale = 50
         scrollView.zoomScale = 1
         
         self.setupGestureRecognizer()
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize = CGSize(width: 5000, height: 5000)
     }
     
     func setupGestureRecognizer() {
@@ -105,14 +110,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         guard let height = NumberFormatter().number(from:
             heightTextField.text ?? "") else { return }
         
-        let flapHeight = Int(truncating: width)/2
+        let flapHeight = CGFloat(truncating: width)/2
+        
+        let lengthFloat = CGFloat(truncating: length)
+        let widthFloat = CGFloat(truncating: width)
+        let heightFloat = CGFloat(truncating: height)
         
         UIView.animate(withDuration: 0.3) {
-            self.faceAWidthConstraint.constant = CGFloat(truncating: length)
-            self.faceAHeightConstraint.constant = CGFloat(truncating: height)
-            self.faceBWidthConstraint.constant = CGFloat(truncating: width)
-            self.faceA1HeightConstraint.constant = CGFloat(flapHeight)
+            self.faceAWidthConstraint.constant = lengthFloat
+            self.faceAHeightConstraint.constant = heightFloat
+            self.faceBWidthConstraint.constant = widthFloat
+            self.faceA1HeightConstraint.constant = flapHeight
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return scrollView.subviews[0]
     }
 }

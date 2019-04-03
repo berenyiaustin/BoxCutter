@@ -21,9 +21,9 @@ class FaceView: UIView {
     }
 
     func didLoad(){
-        backgroundColor = .clear
+        backgroundColor = .black
         layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1
+        layer.borderWidth = 0
     }
 
 }
