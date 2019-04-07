@@ -60,6 +60,11 @@
                                                     <constraint firstItem="Up3-eX-Q8h" firstAttribute="top" secondItem="bVc-YR-ebd" secondAttribute="top" constant="2" id="JRk-Gm-j3F"/>
                                                     <constraint firstAttribute="height" constant="128" id="Sds-BH-UdT"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="Up3-eX-Q8h"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

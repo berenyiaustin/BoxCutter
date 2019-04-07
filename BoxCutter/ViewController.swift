@@ -117,10 +117,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         let heightFloat = CGFloat(truncating: height)
         
         UIView.animate(withDuration: 0.3) {
-            self.faceAWidthConstraint.constant = lengthFloat
-            self.faceAHeightConstraint.constant = heightFloat
-            self.faceBWidthConstraint.constant = widthFloat
-            self.faceA1HeightConstraint.constant = flapHeight
+            self.faceAWidthConstraint.constant = lengthFloat * 72
+            self.faceAHeightConstraint.constant = heightFloat * 72
+            self.faceBWidthConstraint.constant = widthFloat * 72
+            self.faceA1HeightConstraint.constant = flapHeight * 72
             self.view.layoutIfNeeded()
         }
     }
