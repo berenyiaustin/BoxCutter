@@ -17,19 +17,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
     @IBOutlet var widthTextField: UITextField!
     @IBOutlet var heightTextField: UITextField!
     
-    @IBOutlet var faceA: FaceView!
-    @IBOutlet var faceB: FaceView!
-    @IBOutlet weak var faceA1: FaceView!
-    @IBOutlet weak var faceB1: FaceView!
-    
-    @IBOutlet weak var faceAHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var faceAWidthConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var faceBWidthConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var faceA1HeightConstraint: NSLayoutConstraint!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -38,16 +25,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         heightTextField.delegate = self
         scrollView.delegate = self
         
-        //faceA.translatesAutoresizingMaskIntoConstraints = false
-        //faceB.translatesAutoresizingMaskIntoConstraints = false
-        
         scrollView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,UIView.AutoresizingMask.flexibleHeight]
         scrollView.minimumZoomScale = 1
         scrollView.maximumZoomScale = 50
-        scrollView.zoomScale = 1
-        
-        self.setupGestureRecognizer()
-        
+        scrollView.zoomScale = 0.25
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,77 +36,163 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         scrollView.contentSize = CGSize(width: 5000, height: 5000)
     }
     
-    func setupGestureRecognizer() {
+    @IBAction func generateOutlines(_ sender: Any) {
         
-    }
-    
-    @IBAction func viewPDF(_ sender: Any) {
-        
-        createPdfFromView(aView: self.scrollView.subviews[0], saveToDocumentsWithFileName: "MC.pdf")
+        drawBoxesWithinPDFView(saveToDocumentsWithFileName: "MC.pdf")
         
         // Create and add a PDFView to the view hierarchy.
-        let pdfView = PDFView(frame: self.scrollView.subviews[0].bounds)
-        pdfView.autoScales = true
-        view.addSubview(pdfView)
+        
+        //let pdfView = PDFView(frame: self.scrollView.subviews[0].bounds)
+        //pdfView.autoScales = true
+        //view.addSubview(pdfView)
         
         // Create a PDFDocument object and set it as PDFView's document to load the document in that view.
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let filePath = (documentsDirectory as NSString).appendingPathComponent("MC.pdf") as String
-        let pdfDocument = PDFDocument(url: URL(fileURLWithPath: filePath))!
-        pdfView.document = pdfDocument
+        //let pdfDocument = PDFDocument(url: URL(fileURLWithPath: filePath))!
+        //pdfView.document = pdfDocument
         
         let document = NSData(contentsOfFile: filePath)
         
         let vc = UIActivityViewController(activityItems: [document as Any], applicationActivities: nil)
         self.present(vc, animated: true, completion: nil)
-        
     }
     
-    func createPdfFromView(aView: UIView, saveToDocumentsWithFileName fileName: String)
-    {
-        let pdfData = NSMutableData()
-        UIGraphicsBeginPDFContextToData(pdfData, aView.bounds, nil)
-        UIGraphicsBeginPDFPage()
+    func drawBoxesWithinPDFView(saveToDocumentsWithFileName fileName: String) {
         
-        guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
+        //Dimension Calculations
+        let lengthNumber = Double(lengthTextField.text ?? "0")
+        let length = (lengthNumber ?? 0) * 72
         
-        aView.layer.render(in: pdfContext)
-        UIGraphicsEndPDFContext()
+        let widthNumber = Double(widthTextField.text ?? "0")
+        let width = (widthNumber ?? 0) * 72
         
-        if let documentDirectories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
-            let documentsFileName = documentDirectories + "/" + fileName
-            debugPrint(documentsFileName)
-            pdfData.write(toFile: documentsFileName, atomically: true)
+        let heightNumber = Double(heightTextField.text ?? "0")
+        let height = (heightNumber ?? 0) * 72
+        
+        let totalWidth = (length * 2) + (width * 2) + 72 + 25
+        let totalHeight = height + width + 25
+        
+        let pageRect = CGRect(x: 0, y: 0, width: totalWidth, height: totalHeight)
+        let renderer = UIGraphicsPDFRenderer(bounds: pageRect)
+        
+        //Render
+        let data = renderer.pdfData { ctx in
+            ctx.beginPage()
+            
+            //Draw
+            
+            ctx.cgContext.setFillColor(UIColor.clear.cgColor)
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+            ctx.cgContext.setLineWidth(1)
+            
+            let path = CGMutablePath()
+            path.move(to: CGPoint(x: 0, y: (width/2) + 72))
+            path.addLine(to: CGPoint(x: 72, y: (width/2)))
+            path.addLine(to: CGPoint(x: 72, y: (width/2) + height))
+            path.addLine(to: CGPoint(x: 0, y: (width/2) + height - 72))
+            path.closeSubpath()
+            ctx.cgContext.addPath(path)
+            
+            //Draw flaps first to keep them below main faces
+            
+            let faceAtop = CGRect(x: 72, y: 0, width: length, height: width/2)
+            ctx.cgContext.addRect(faceAtop)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceAbottom = CGRect(x: 72, y: (width/2) + height, width: length, height: width/2)
+            ctx.cgContext.addRect(faceAbottom)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceBtop = CGRect(x: length + 72, y: 0, width: width, height: width/2)
+            ctx.cgContext.addRect(faceBtop)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceBbottom = CGRect(x: length + 72, y: (width/2) + height, width: width, height: width/2)
+            ctx.cgContext.addRect(faceBbottom)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceCtop = CGRect(x: length + width + 72, y: 0, width: length, height: width/2)
+            ctx.cgContext.addRect(faceCtop)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceCbottom = CGRect(x: length + width + 72, y: (width/2) + height, width: length, height: width/2)
+            ctx.cgContext.addRect(faceCbottom)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceDtop = CGRect(x: length + width + length + 72, y: 0, width: width, height: width/2)
+            ctx.cgContext.addRect(faceDtop)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceDbottom = CGRect(x: length + width + length + 72, y: (width/2) + height, width: width, height: width/2)
+            ctx.cgContext.addRect(faceDbottom)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            //Draw main faces last to keep them on top
+            
+            let faceA = CGRect(x: 72, y: width/2, width: length, height: height)
+            ctx.cgContext.addRect(faceA)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceB = CGRect(x: length + 72, y: width/2, width: width, height: height)
+            ctx.cgContext.addRect(faceB)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceC = CGRect(x: length + width + 72, y: width/2, width: length, height: height)
+            ctx.cgContext.addRect(faceC)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            let faceD = CGRect(x: length + width + length + 72, y: width/2, width: width, height: height)
+            ctx.cgContext.addRect(faceD)
+            ctx.cgContext.drawPath(using: .stroke)
+            
+            //Add Text
+            let warningString = "Be CAREFUL when opening box. Your gear inside doesn’t like to be poked by knives."
+            
+            drawRotatedText(warningString, at: CGPoint(x: faceAtop.size.width/2 + 72, y: 0), angle: 180)
+            drawRotatedText(warningString, at: CGPoint(x: faceAbottom.size.width/2 + 72, y: CGFloat(width + height)), angle: 0)
+            drawRotatedText(warningString, at: CGPoint(x: 72 + CGFloat(length + width) + faceCtop.size.width/2, y: 0), angle: 180)
+            drawRotatedText(warningString, at: CGPoint(x: 72 + CGFloat(length + width) + faceCbottom.size.width/2, y: CGFloat(width + height)), angle: 0)
+            
         }
-    }
-    
-    @IBAction func updateDims(_ sender: Any) {
         
-        guard let length = NumberFormatter().number(from:
-            lengthTextField.text ?? "") else { return }
+        var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last
         
-        guard let width = NumberFormatter().number(from:
-            widthTextField.text ?? "") else { return }
+        docURL = docURL?.appendingPathComponent("MC.pdf")
         
-        guard let height = NumberFormatter().number(from:
-            heightTextField.text ?? "") else { return }
+        //Lastly, write your file to the disk.
         
-        let flapHeight = CGFloat(truncating: width)/2
-        
-        let lengthFloat = CGFloat(truncating: length)
-        let widthFloat = CGFloat(truncating: width)
-        let heightFloat = CGFloat(truncating: height)
-        
-        UIView.animate(withDuration: 0.3) {
-            self.faceAWidthConstraint.constant = lengthFloat * 72
-            self.faceAHeightConstraint.constant = heightFloat * 72
-            self.faceBWidthConstraint.constant = widthFloat * 72
-            self.faceA1HeightConstraint.constant = flapHeight * 72
-            self.view.layoutIfNeeded()
+        do {
+            try data.write(to: docURL!)
+        } catch {
+            print("error")
         }
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return scrollView.subviews[0]
+    }
+    
+    func drawRotatedText(_ text: String, at p: CGPoint, angle: CGFloat) {
+        // Draw text centered on the point, rotated by an angle in degrees moving clockwise.
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let attributes = [
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
+        let textSize = text.size(withAttributes: attributes as [NSAttributedString.Key : Any])
+        let c = UIGraphicsGetCurrentContext()!
+        c.saveGState()
+        // Translate the origin to the drawing location and rotate the coordinate system.
+        c.translateBy(x: p.x, y: p.y)
+        c.rotate(by: angle * .pi / 180)
+        // Draw the text centered at the point.
+        text.draw(at: CGPoint(x: -textSize.width / 2, y: (-textSize.height * 2) + 10), withAttributes: attributes as [NSAttributedString.Key : Any])
+        // Restore the original coordinate system.
+        c.restoreGState()
     }
 }
