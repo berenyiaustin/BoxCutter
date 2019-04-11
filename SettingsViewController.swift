@@ -22,6 +22,9 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
         if let warning = defaults.string(forKey: "cutWarningText") {
             cutWarningTextField.text = warning
         }
+        
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

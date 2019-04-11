@@ -19,20 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxP-a4-k6O">
-                                <rect key="frame" x="0.0" y="20" width="414" height="223"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="443.66666666666669"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nC9-5Q-HxM" userLabel="Centered View">
-                                        <rect key="frame" x="160" y="88.333333333333329" width="94" height="45.999999999999986"/>
+                                        <rect key="frame" x="160" y="199" width="94" height="46"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Nn-Rk-HZO" userLabel="MockAtop" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="25" height="12.666666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="25" height="12.333333333333334"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12.5" id="KHC-5e-2fH"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zvl-HT-B5U" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="10.666666666666671" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="10.333333333333343" width="25" height="25"/>
                                                 <color key="backgroundColor" red="0.83137254901960778" green="0.25882352941176467" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="DiD-OT-umx"/>
@@ -40,46 +40,46 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osH-n7-qe9" userLabel="MockAbottom" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="33.666666666666671" width="25" height="12.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="33.333333333333343" width="25" height="12.666666666666664"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdg-8j-Y3x" userLabel="MockBtop" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="23" y="0.0" width="25" height="12.666666666666666"/>
+                                                <rect key="frame" x="23" y="0.0" width="25" height="12.333333333333334"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVR-Mr-JTn" userLabel="MockB" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="23" y="10.666666666666671" width="25" height="25"/>
+                                                <rect key="frame" x="23" y="10.333333333333343" width="25" height="25"/>
                                                 <color key="backgroundColor" red="0.8298673365" green="0.25730415239999999" blue="0.30848924760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="hku-9h-IR5"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-nB-gf6" userLabel="MockBbottom" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="23" y="33.666666666666671" width="25" height="12.333333333333336"/>
+                                                <rect key="frame" x="23" y="33.333333333333343" width="25" height="12.666666666666664"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-nD-YH6" userLabel="MockCtop" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="46" y="0.0" width="25" height="12.666666666666666"/>
+                                                <rect key="frame" x="46" y="0.0" width="25" height="12.333333333333334"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmb-MM-cXv" userLabel="MockC" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="46" y="10.666666666666671" width="25" height="25"/>
+                                                <rect key="frame" x="46" y="10.333333333333343" width="25" height="25"/>
                                                 <color key="backgroundColor" red="0.8298673365" green="0.25730415239999999" blue="0.30848924760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rv-bi-a4P" userLabel="MockCbottom" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="46" y="33.666666666666671" width="25" height="12.333333333333336"/>
+                                                <rect key="frame" x="46" y="33.333333333333343" width="25" height="12.666666666666664"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aY0-oX-0Y3" userLabel="MockDtop" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="69" y="0.0" width="25" height="12.666666666666666"/>
+                                                <rect key="frame" x="69" y="0.0" width="25" height="12.333333333333334"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4B-an-akg" userLabel="MockD" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="69" y="10.666666666666671" width="25" height="25"/>
+                                                <rect key="frame" x="69" y="10.333333333333343" width="25" height="25"/>
                                                 <color key="backgroundColor" red="0.8298673365" green="0.25730415239999999" blue="0.30848924760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqx-C2-xiL" userLabel="MockDbottom" customClass="FaceView" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="69" y="33.666666666666671" width="25" height="12.333333333333336"/>
+                                                <rect key="frame" x="69" y="33.333333333333343" width="25" height="12.666666666666664"/>
                                                 <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                         </subviews>
@@ -134,46 +134,46 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OUTLINE PREVIEW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRf-gU-RUe">
-                                        <rect key="frame" x="136.33333333333337" y="46.666666666666671" width="141.66666666666663" height="18"/>
+                                        <rect key="frame" x="136.33333333333337" y="102" width="141.66666666666663" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                         <color key="textColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iW-fX-jD4">
-                                        <rect key="frame" x="161.33333333333334" y="138.33333333333334" width="22.333333333333343" height="2"/>
+                                        <rect key="frame" x="161.33333333333334" y="249" width="22.333333333333343" height="2"/>
                                         <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="oM8-Ok-aVy"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYZ-vl-0hP">
-                                        <rect key="frame" x="168.33333333333334" y="142.33333333333334" width="8.6666666666666572" height="17"/>
+                                        <rect key="frame" x="168.33333333333334" y="253" width="8.6666666666666572" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                         <color key="textColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIu-JU-7DW">
-                                        <rect key="frame" x="184.33333333333334" y="138.33333333333334" width="22.333333333333343" height="2"/>
+                                        <rect key="frame" x="184.33333333333334" y="249" width="22.333333333333343" height="2"/>
                                         <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="mkD-tn-fDA"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlX-co-yC0">
-                                        <rect key="frame" x="188.33333333333334" y="142.33333333333334" width="14.333333333333343" height="17"/>
+                                        <rect key="frame" x="188.33333333333334" y="253" width="14.333333333333343" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                         <color key="textColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8KZ-Hg-xnR">
-                                        <rect key="frame" x="154" y="100.33333333333333" width="2" height="22.333333333333329"/>
+                                        <rect key="frame" x="154" y="210.66666666666666" width="2" height="22.333333333333343"/>
                                         <color key="backgroundColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="2" id="BXV-f5-Yff"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrm-Oq-tcR">
-                                        <rect key="frame" x="138.66666666666666" y="103" width="11.333333333333343" height="17"/>
+                                        <rect key="frame" x="138.66666666666666" y="213.33333333333334" width="11.333333333333343" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                         <color key="textColor" red="0.83137254900000002" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -227,7 +227,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8N-qC-XCM">
-                                <rect key="frame" x="0.0" y="243" width="414" height="493"/>
+                                <rect key="frame" x="0.0" y="463.66666666666674" width="414" height="272.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aa4-HH-yZ9">
                                         <rect key="frame" x="16" y="16" width="382" height="56"/>
@@ -249,9 +249,9 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gID-Qo-0cP">
-                                        <rect key="frame" x="16" y="87" width="382" height="166"/>
+                                        <rect key="frame" x="16" y="86.999999999999943" width="382" height="166"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Length" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NOe-hO-CQv" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Length" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NOe-hO-CQv" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="Ixs-0f-0NO"/>
@@ -291,13 +291,13 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INCHES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcO-DY-dSG">
-                                        <rect key="frame" x="349.66666666666669" y="87" width="48.333333333333314" height="14.333333333333329"/>
+                                        <rect key="frame" x="349.66666666666669" y="86.999999999999943" width="48.333333333333314" height="14.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="12"/>
                                         <color key="textColor" red="0.92468369009999996" green="0.77659314869999996" blue="0.32926896210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rQC-zb-gUS" customClass="BoxCutterSwitch" customModule="BoxCutter" customModuleProvider="target">
-                                        <rect key="frame" x="349" y="106" width="51" height="31"/>
+                                        <rect key="frame" x="349" y="105.99999999999994" width="51" height="31"/>
                                         <color key="onTintColor" red="0.098074533045291901" green="0.10178806632757187" blue="0.11372732371091843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="thumbTintColor" red="0.92468369009999996" green="0.77659314869999996" blue="0.32926896210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
@@ -324,6 +324,7 @@
                         <constraints>
                             <constraint firstItem="CxP-a4-k6O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="220-8D-jUW"/>
                             <constraint firstItem="j8N-qC-XCM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3d7-Ex-reC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j8N-qC-XCM" secondAttribute="bottom" id="5kd-xd-lcM"/>
                             <constraint firstItem="Kpj-k2-Wh5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="7ms-3s-r6f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WYT-Hz-2Ka" secondAttribute="bottom" id="AWP-fH-FQm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CxP-a4-k6O" secondAttribute="trailing" id="P8r-g2-m0Q"/>
@@ -332,10 +333,9 @@
                             <constraint firstItem="WYT-Hz-2Ka" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Soa-E2-iJh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WYT-Hz-2Ka" secondAttribute="trailing" id="mtb-Qn-75s"/>
                             <constraint firstItem="WYT-Hz-2Ka" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nqr-8C-IoR"/>
-                            <constraint firstItem="j8N-qC-XCM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.67" id="otx-5I-bOr"/>
+                            <constraint firstItem="j8N-qC-XCM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.37" id="otx-5I-bOr"/>
                             <constraint firstItem="j8N-qC-XCM" firstAttribute="top" secondItem="CxP-a4-k6O" secondAttribute="bottom" id="sYV-jH-YZz"/>
                             <constraint firstItem="CxP-a4-k6O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u6c-tR-iL6"/>
-                            <constraint firstItem="j8N-qC-XCM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="w7g-ty-VvJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
@@ -347,6 +347,9 @@
                     <navigationItem key="navigationItem" id="RcU-RT-zNC"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="controlsView" destination="j8N-qC-XCM" id="YZV-QQ-5vY"/>
+                        <outlet property="controlsViewBottomConstraint" destination="5kd-xd-lcM" id="RBO-Va-1Yz"/>
+                        <outlet property="dimensionsStackView" destination="gID-Qo-0cP" id="lnr-Cc-hzW"/>
                         <outlet property="heightTextField" destination="QdN-uG-X1B" id="oUz-p5-ndU"/>
                         <outlet property="lengthTextField" destination="NOe-hO-CQv" id="2Qo-f7-v2m"/>
                         <outlet property="mockA" destination="Zvl-HT-B5U" id="PjN-JK-S0T"/>
@@ -356,6 +359,7 @@
                         <outlet property="mockB" destination="wVR-Mr-JTn" id="fm5-EF-GMm"/>
                         <outlet property="mockBWidthConstraint" destination="hku-9h-IR5" id="glx-Xw-DfU"/>
                         <outlet property="previewLabel" destination="pRf-gU-RUe" id="Brx-0S-2dV"/>
+                        <outlet property="previewWindow" destination="CxP-a4-k6O" id="S15-z4-ALg"/>
                         <outlet property="scrollView" destination="WYT-Hz-2Ka" id="JIF-jz-mle"/>
                         <outlet property="unitsLabel" destination="HcO-DY-dSG" id="ES7-Os-Qed"/>
                         <outlet property="unitsSwitch" destination="rQC-zb-gUS" id="o7o-6M-g7J"/>

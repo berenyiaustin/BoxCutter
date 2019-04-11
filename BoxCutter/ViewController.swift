@@ -17,6 +17,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
     var unit = 72.00
     var multiplier = 2.5
     
+    @IBOutlet weak var previewWindow: UIView!
+    @IBOutlet weak var controlsView: UIView!
+    @IBOutlet weak var dimensionsStackView: UIStackView!
+    @IBOutlet weak var controlsViewBottomConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var unitsLabel: UILabel!
     @IBOutlet weak var unitsSwitch: UISwitch!
     
@@ -43,7 +48,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tap.numberOfTapsRequired = 1
+        previewWindow.addGestureRecognizer(tap)
+        
+        lengthTextField.becomeFirstResponder()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         mockA.translatesAutoresizingMaskIntoConstraints = false
+        controlsView.translatesAutoresizingMaskIntoConstraints = false
         
         lengthTextField.delegate = self
         widthTextField.delegate = self
@@ -264,7 +279,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
             
             self.isInches = true
             //INCH MULTIPLIER
-            self.multiplier = 4
+            self.multiplier = 3.5
             self.unit = 72
             self.unitsLabel.text = "INCHES"
         }
@@ -319,5 +334,31 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.controlsViewBottomConstraint.constant == 0 {
+                UIView.animate(withDuration: 0.0) {
+                    self.controlsViewBottomConstraint.constant = keyboardSize.height
+                    self.view.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    @objc func hideKeyboard() {
+        print("Keyboard hidden")
+        self.view.endEditing(true)
+        view.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.controlsViewBottomConstraint.constant != 0 {
+            UIView.animate(withDuration: 0.0) {
+                self.controlsViewBottomConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }
