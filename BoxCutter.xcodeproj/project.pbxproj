@@ -14,6 +14,7 @@
 		90096037225E404600456885 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90096036225E404600456885 /* ThemeManager.swift */; };
 		90096039225E884C00456885 /* BoxCutterSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90096038225E884C00456885 /* BoxCutterSwitch.swift */; };
 		9009603B225E9C1500456885 /* TrapezoidFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9009603A225E9C1500456885 /* TrapezoidFaceView.swift */; };
+		9009603F225FCBA700456885 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9009603E225FCBA700456885 /* SettingsViewController.swift */; };
 		90366C772252EFFC00E7305D /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90366C762252EFFC00E7305D /* FaceView.swift */; };
 		90804D812252B3BC00394072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90804D802252B3BC00394072 /* AppDelegate.swift */; };
 		90804D832252B3BC00394072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90804D822252B3BC00394072 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		90096036225E404600456885 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		90096038225E884C00456885 /* BoxCutterSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxCutterSwitch.swift; sourceTree = "<group>"; };
 		9009603A225E9C1500456885 /* TrapezoidFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapezoidFaceView.swift; sourceTree = "<group>"; };
+		9009603E225FCBA700456885 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		90366C762252EFFC00E7305D /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		90804D7D2252B3BC00394072 /* BoxCutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxCutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90804D802252B3BC00394072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		90804D742252B3BC00394072 = {
 			isa = PBXGroup;
 			children = (
+				9009603E225FCBA700456885 /* SettingsViewController.swift */,
 				90804D7F2252B3BC00394072 /* BoxCutter */,
 				90804D942252B3BD00394072 /* BoxCutterTests */,
 				90804D9F2252B3BD00394072 /* BoxCutterUITests */,
@@ -413,6 +416,7 @@
 				90804D812252B3BC00394072 /* AppDelegate.swift in Sources */,
 				90096039225E884C00456885 /* BoxCutterSwitch.swift in Sources */,
 				90366C772252EFFC00E7305D /* FaceView.swift in Sources */,
+				9009603F225FCBA700456885 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

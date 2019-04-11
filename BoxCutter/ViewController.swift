@@ -11,6 +11,8 @@ import PDFKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
+    let theme = Theme.theme1
+    
     public var isInches = true
     var unit = 72.00
     var multiplier = 2.5
@@ -57,6 +59,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
             
         }, completion: nil)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.navigationBar.barStyle = .blackOpaque
+        self.navigationController?.navigationBar.backgroundColor = theme.backgroundColor
+        self.navigationController?.navigationBar.barTintColor = theme.backgroundColor
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     override func viewDidLayoutSubviews() {
@@ -179,12 +190,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
             ctx.cgContext.drawPath(using: .stroke)
             
             //Add Text
-            let warningString = "Be CAREFUL when opening box. Your gear inside doesn’t like to be poked by knives."
+            let defaults = UserDefaults.standard
+            if let warning = defaults.string(forKey: "cutWarningText") {
+                drawRotatedText(warning, at: CGPoint(x: faceAtop.size.width/2 + 72, y: 0), angle: 180)
+                drawRotatedText(warning, at: CGPoint(x: faceAbottom.size.width/2 + 72, y: CGFloat(width + height)), angle: 0)
+                drawRotatedText(warning, at: CGPoint(x: 72 + CGFloat(length + width) + faceCtop.size.width/2, y: 0), angle: 180)
+                drawRotatedText(warning, at: CGPoint(x: 72 + CGFloat(length + width) + faceCbottom.size.width/2, y: CGFloat(width + height)), angle: 0)
+            }
             
-            drawRotatedText(warningString, at: CGPoint(x: faceAtop.size.width/2 + 72, y: 0), angle: 180)
-            drawRotatedText(warningString, at: CGPoint(x: faceAbottom.size.width/2 + 72, y: CGFloat(width + height)), angle: 0)
-            drawRotatedText(warningString, at: CGPoint(x: 72 + CGFloat(length + width) + faceCtop.size.width/2, y: 0), angle: 180)
-            drawRotatedText(warningString, at: CGPoint(x: 72 + CGFloat(length + width) + faceCbottom.size.width/2, y: CGFloat(width + height)), angle: 0)
+            
             
             //Add Image
 //            let getOutdoors = UIImage(named: "getOutdoors")
@@ -250,7 +264,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
             
             self.isInches = true
             //INCH MULTIPLIER
-            self.multiplier = 3
+            self.multiplier = 4
             self.unit = 72
             self.unitsLabel.text = "INCHES"
         }

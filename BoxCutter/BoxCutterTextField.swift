@@ -29,7 +29,9 @@ class BoxCutterTextField: UITextField {
         self.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         self.textColor = .white
         self.tintColor = theme.mainColor
-        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : theme.lightGray])
+        if let placeholder = self.placeholder {
+            self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : theme.lightGray])
+        }
         
         self.clearButtonMode = .always
     }
