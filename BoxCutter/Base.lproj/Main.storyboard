@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BoxCutter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="BoxCutter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,9 +252,9 @@
                                         <rect key="frame" x="16" y="86.999999999999943" width="382" height="166"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Length" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NOe-hO-CQv" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="Ixs-0f-0NO"/>
+                                                    <constraint firstAttribute="width" constant="150" id="Ixs-0f-0NO"/>
                                                     <constraint firstAttribute="height" constant="50" id="mcF-62-Xcr"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
@@ -265,7 +265,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Width" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2Dx-UU-IH1" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="58" width="200" height="50"/>
+                                                <rect key="frame" x="0.0" y="58" width="150" height="50"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
@@ -274,7 +274,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QdN-uG-X1B" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="116" width="200" height="50"/>
+                                                <rect key="frame" x="0.0" y="116" width="150" height="50"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
@@ -304,10 +304,24 @@
                                             <action selector="unitsSwitchDidTouch:" destination="BYZ-38-t0r" eventType="valueChanged" id="dPc-V4-KjG"/>
                                         </connections>
                                     </switch>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="File Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsk-li-SIR" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
+                                        <rect key="frame" x="198" y="202.99999999999994" width="200" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="WWU-Xh-3Qs"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="namePhonePad" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="fileNameEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="5Uh-e0-pXI"/>
+                                            <action selector="heightEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="b4D-sU-N9N"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="aa4-HH-yZ9" firstAttribute="leading" secondItem="j8N-qC-XCM" secondAttribute="leading" constant="16" id="2U2-Pw-o09"/>
+                                    <constraint firstItem="hsk-li-SIR" firstAttribute="leading" secondItem="QdN-uG-X1B" secondAttribute="trailing" constant="32" id="6Eu-X9-LWC"/>
                                     <constraint firstItem="aa4-HH-yZ9" firstAttribute="top" secondItem="j8N-qC-XCM" secondAttribute="top" constant="16" id="8z1-IA-E1k"/>
                                     <constraint firstItem="gID-Qo-0cP" firstAttribute="centerX" secondItem="aa4-HH-yZ9" secondAttribute="centerX" id="FQ0-7K-c1F"/>
                                     <constraint firstItem="gID-Qo-0cP" firstAttribute="top" secondItem="aa4-HH-yZ9" secondAttribute="bottom" constant="15" id="L6l-sU-Jnq"/>
@@ -317,6 +331,8 @@
                                     <constraint firstItem="rQC-zb-gUS" firstAttribute="bottom" secondItem="NOe-hO-CQv" secondAttribute="bottom" id="Wgo-5P-cpd"/>
                                     <constraint firstItem="HcO-DY-dSG" firstAttribute="trailing" secondItem="gID-Qo-0cP" secondAttribute="trailing" id="fMt-Cr-yEB"/>
                                     <constraint firstItem="HcO-DY-dSG" firstAttribute="top" secondItem="NOe-hO-CQv" secondAttribute="top" id="ksJ-nl-KrC"/>
+                                    <constraint firstAttribute="trailing" secondItem="hsk-li-SIR" secondAttribute="trailing" constant="16" id="nKM-KC-kDl"/>
+                                    <constraint firstItem="hsk-li-SIR" firstAttribute="centerY" secondItem="QdN-uG-X1B" secondAttribute="centerY" id="zYj-90-Z0R"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -350,6 +366,7 @@
                         <outlet property="controlsView" destination="j8N-qC-XCM" id="YZV-QQ-5vY"/>
                         <outlet property="controlsViewBottomConstraint" destination="5kd-xd-lcM" id="RBO-Va-1Yz"/>
                         <outlet property="dimensionsStackView" destination="gID-Qo-0cP" id="lnr-Cc-hzW"/>
+                        <outlet property="fileNameTextField" destination="hsk-li-SIR" id="4nh-x0-ULK"/>
                         <outlet property="heightTextField" destination="QdN-uG-X1B" id="oUz-p5-ndU"/>
                         <outlet property="lengthTextField" destination="NOe-hO-CQv" id="2Qo-f7-v2m"/>
                         <outlet property="mockA" destination="Zvl-HT-B5U" id="PjN-JK-S0T"/>
@@ -379,15 +396,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUT WARNING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWG-94-8Ro">
-                                <rect key="frame" x="20" y="60" width="122" height="21"/>
+                                <rect key="frame" x="20" y="157" width="122" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.44705438613891602" green="0.44705581665039062" blue="0.4470590353012085" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Empty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-WF-kLP" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
-                                <rect key="frame" x="20" y="89" width="374" height="40"/>
+                                <rect key="frame" x="20" y="186" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Mi5-ng-bGB"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILE NAME SUFFIX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzC-Nl-WYw">
+                                <rect key="frame" x="20" y="64" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.44705438609999998" green="0.4470558167" blue="0.44705903530000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(ex. dielines)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JkB-qc-4vx" customClass="BoxCutterTextField" customModule="BoxCutter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="93" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Fl-07-i0p"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -396,17 +428,23 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4RE-WF-kLP" firstAttribute="leading" secondItem="YKh-pm-uGq" secondAttribute="leading" constant="20" id="6fQ-Tt-obp"/>
+                            <constraint firstItem="fzC-Nl-WYw" firstAttribute="leading" secondItem="YKh-pm-uGq" secondAttribute="leading" constant="20" id="3a7-44-qsb"/>
+                            <constraint firstItem="4RE-WF-kLP" firstAttribute="leading" secondItem="fzC-Nl-WYw" secondAttribute="leading" id="8CQ-lY-OcD"/>
                             <constraint firstItem="4RE-WF-kLP" firstAttribute="top" secondItem="YWG-94-8Ro" secondAttribute="bottom" constant="8" id="BBG-gd-pVj"/>
-                            <constraint firstItem="YWG-94-8Ro" firstAttribute="top" secondItem="YKh-pm-uGq" secondAttribute="top" constant="60" id="b7q-HG-zKz"/>
-                            <constraint firstItem="YKh-pm-uGq" firstAttribute="trailing" secondItem="4RE-WF-kLP" secondAttribute="trailing" constant="20" id="cRz-rh-q6l"/>
-                            <constraint firstItem="YWG-94-8Ro" firstAttribute="leading" secondItem="YKh-pm-uGq" secondAttribute="leading" constant="20" id="dh9-eA-l6X"/>
+                            <constraint firstItem="JkB-qc-4vx" firstAttribute="leading" secondItem="fzC-Nl-WYw" secondAttribute="leading" id="HEd-Ed-vKB"/>
+                            <constraint firstItem="YKh-pm-uGq" firstAttribute="trailing" secondItem="JkB-qc-4vx" secondAttribute="trailing" constant="20" id="MnY-DW-dOB"/>
+                            <constraint firstItem="JkB-qc-4vx" firstAttribute="top" secondItem="fzC-Nl-WYw" secondAttribute="bottom" constant="8" id="Wd8-vm-s4G"/>
+                            <constraint firstItem="4RE-WF-kLP" firstAttribute="trailing" secondItem="JkB-qc-4vx" secondAttribute="trailing" id="dQV-jj-Zry"/>
+                            <constraint firstItem="YWG-94-8Ro" firstAttribute="top" secondItem="JkB-qc-4vx" secondAttribute="bottom" constant="24" id="nUz-H3-GX6"/>
+                            <constraint firstItem="fzC-Nl-WYw" firstAttribute="top" secondItem="YKh-pm-uGq" secondAttribute="top" constant="64" id="qtt-Ro-uX6"/>
+                            <constraint firstItem="YWG-94-8Ro" firstAttribute="leading" secondItem="fzC-Nl-WYw" secondAttribute="leading" id="sbO-wY-40b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YKh-pm-uGq"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="cutWarningTextField" destination="4RE-WF-kLP" id="lbL-fh-gud"/>
+                        <outlet property="fileNameSuffixTextField" destination="JkB-qc-4vx" id="coq-Cy-R1w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9o-sj-rp6" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,13 +9,16 @@
 import UIKit
 import PDFKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
+class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
     let theme = Theme.theme1
+    let defaults = UserDefaults.standard
     
     public var isInches = true
     var unit = 72.00
     var multiplier = 2.5
+    
+    var fileName = "MC"
     
     @IBOutlet weak var previewWindow: UIView!
     @IBOutlet weak var controlsView: UIView!
@@ -41,6 +44,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
     @IBOutlet var lengthTextField: UITextField!
     @IBOutlet var widthTextField: UITextField!
     @IBOutlet var heightTextField: UITextField!
+    @IBOutlet weak var fileNameTextField: BoxCutterTextField!
     
     let impact = UIImpactFeedbackGenerator()
     
@@ -63,6 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         lengthTextField.delegate = self
         widthTextField.delegate = self
         heightTextField.delegate = self
+        fileNameTextField.delegate = self
         scrollView.delegate = self
         
         scrollView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,UIView.AutoresizingMask.flexibleHeight]
@@ -105,13 +110,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
         //TextField success
         if lengthTextField.text != "" && widthTextField.text != "" && heightTextField.text != "" {
             
-            drawBoxesWithinPDFView(saveToDocumentsWithFileName: "MC.pdf")
+            if let fileNameString = fileNameTextField.text {
+                fileName = fileNameString
+                //Append suffix if it exists
+                if let suffix = self.defaults.string(forKey: "fileNameSuffix") {
+                    fileName.append(" \(suffix)")
+                }
+                drawBoxesWithinPDFView(saveToDocumentsWithFileName: "\(fileName).pdf")
+            } else {
+                drawBoxesWithinPDFView(saveToDocumentsWithFileName: "\(fileName).pdf")
+            }
             
             // Create a PDFDocument object and set it as PDFView's document to load the document in that view.
             let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let filePath = (documentsDirectory as NSString).appendingPathComponent("MC.pdf") as String
-            let document = NSData(contentsOfFile: filePath)
-            let vc = UIActivityViewController(activityItems: [document as Any], applicationActivities: nil)
+            let filePath = (documentsDirectory as NSString).appendingPathComponent("\(fileName).pdf") as String
+            let url = NSURL(fileURLWithPath: filePath)
+            let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -205,26 +219,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
             ctx.cgContext.drawPath(using: .stroke)
             
             //Add Text
-            let defaults = UserDefaults.standard
-            if let warning = defaults.string(forKey: "cutWarningText") {
+            
+            if let warning = self.defaults.string(forKey: "cutWarningText") {
                 drawRotatedText(warning, at: CGPoint(x: faceAtop.size.width/2 + 72, y: 0), angle: 180)
                 drawRotatedText(warning, at: CGPoint(x: faceAbottom.size.width/2 + 72, y: CGFloat(width + height)), angle: 0)
                 drawRotatedText(warning, at: CGPoint(x: 72 + CGFloat(length + width) + faceCtop.size.width/2, y: 0), angle: 180)
                 drawRotatedText(warning, at: CGPoint(x: 72 + CGFloat(length + width) + faceCbottom.size.width/2, y: CGFloat(width + height)), angle: 0)
             }
-            
-            
-            
-            //Add Image
-//            let getOutdoors = UIImage(named: "getOutdoors")
-//            getOutdoors?.draw(at: CGPoint(x: 0, y: 0))
-//            getOutdoors.
-            
         }
         
         var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last
         
-        docURL = docURL?.appendingPathComponent("MC.pdf")
+        docURL = docURL?.appendingPathComponent(fileName)
         
         //Lastly, write your file to the disk.
         
@@ -330,6 +336,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegat
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    @IBAction func fileNameEditingChanged(_ sender: Any) {
+        
     }
     
     override var prefersStatusBarHidden: Bool {

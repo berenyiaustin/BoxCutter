@@ -13,18 +13,21 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
     let defaults = UserDefaults.standard
 
     @IBOutlet weak var cutWarningTextField: BoxCutterTextField!
+    @IBOutlet weak var fileNameSuffixTextField: BoxCutterTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cutWarningTextField.delegate = self
+        fileNameSuffixTextField.delegate = self
         // Do any additional setup after loading the view.
         
         if let warning = defaults.string(forKey: "cutWarningText") {
             cutWarningTextField.text = warning
         }
         
-
-        
+        if let suffix = defaults.string(forKey: "fileNameSuffix") {
+            fileNameSuffixTextField.text = suffix
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,12 +41,21 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         cutWarningTextField.resignFirstResponder()
         print("done")
         
-        if let warning = cutWarningTextField.text {
-            self.defaults.set(warning, forKey: "cutWarningText")
+        if textField == cutWarningTextField {
+            if let warning = cutWarningTextField.text {
+                self.defaults.set(warning, forKey: "cutWarningText")
+            }
         }
+        if textField == fileNameSuffixTextField {
+            if let suffix = fileNameSuffixTextField.text {
+                self.defaults.set(suffix, forKey: "fileNameSuffix")
+            }
+        }
+        
     }
     
     /*
