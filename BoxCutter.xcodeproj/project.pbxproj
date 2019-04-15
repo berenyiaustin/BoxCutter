@@ -16,6 +16,7 @@
 		9009603B225E9C1500456885 /* TrapezoidFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9009603A225E9C1500456885 /* TrapezoidFaceView.swift */; };
 		9009603F225FCBA700456885 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9009603E225FCBA700456885 /* SettingsViewController.swift */; };
 		90366C772252EFFC00E7305D /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90366C762252EFFC00E7305D /* FaceView.swift */; };
+		9038EC212261885C00FC39DD /* test sheet.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9038EC202261885C00FC39DD /* test sheet.csv */; };
 		90804D812252B3BC00394072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90804D802252B3BC00394072 /* AppDelegate.swift */; };
 		90804D832252B3BC00394072 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90804D822252B3BC00394072 /* MainViewController.swift */; };
 		90804D862252B3BC00394072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90804D842252B3BC00394072 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		9009603A225E9C1500456885 /* TrapezoidFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapezoidFaceView.swift; sourceTree = "<group>"; };
 		9009603E225FCBA700456885 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		90366C762252EFFC00E7305D /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		9038EC202261885C00FC39DD /* test sheet.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "test sheet.csv"; sourceTree = "<group>"; };
 		90804D7D2252B3BC00394072 /* BoxCutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxCutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90804D802252B3BC00394072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90804D822252B3BC00394072 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				90804D822252B3BC00394072 /* MainViewController.swift */,
 				90366C762252EFFC00E7305D /* FaceView.swift */,
 				90804D842252B3BC00394072 /* Main.storyboard */,
+				9038EC202261885C00FC39DD /* test sheet.csv */,
 				9009603A225E9C1500456885 /* TrapezoidFaceView.swift */,
 				90096038225E884C00456885 /* BoxCutterSwitch.swift */,
 				90096034225E3EBE00456885 /* BoxCutterTextField.swift */,
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90804D8B2252B3BD00394072 /* LaunchScreen.storyboard in Resources */,
+				9038EC212261885C00FC39DD /* test sheet.csv in Resources */,
 				90804D882252B3BD00394072 /* Assets.xcassets in Resources */,
 				90804D862252B3BC00394072 /* Main.storyboard in Resources */,
 			);

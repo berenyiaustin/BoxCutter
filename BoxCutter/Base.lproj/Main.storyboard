@@ -186,6 +186,13 @@
                                             <segue destination="Ee5-uN-JOM" kind="show" id="lXM-ok-wx4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuS-gK-Zda">
+                                        <rect key="frame" x="24" y="14" width="25" height="31"/>
+                                        <state key="normal" image="addDocument"/>
+                                        <connections>
+                                            <action selector="uploadCSVFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y2O-Pf-eou"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nC9-5Q-HxM" firstAttribute="centerY" secondItem="CxP-a4-k6O" secondAttribute="centerY" id="0mj-27-TQV"/>
@@ -196,11 +203,13 @@
                                     <constraint firstItem="2iW-fX-jD4" firstAttribute="width" secondItem="Zvl-HT-B5U" secondAttribute="width" multiplier="0.9" id="LZk-OA-ALI"/>
                                     <constraint firstItem="2iW-fX-jD4" firstAttribute="centerX" secondItem="Zvl-HT-B5U" secondAttribute="centerX" id="Lyf-8d-ifK"/>
                                     <constraint firstItem="pRf-gU-RUe" firstAttribute="centerX" secondItem="CxP-a4-k6O" secondAttribute="centerX" id="TPW-2w-9yf"/>
+                                    <constraint firstItem="DuS-gK-Zda" firstAttribute="leading" secondItem="CxP-a4-k6O" secondAttribute="leading" constant="24" id="V3s-Hz-jtU"/>
                                     <constraint firstItem="pRf-gU-RUe" firstAttribute="centerY" secondItem="CxP-a4-k6O" secondAttribute="centerY" multiplier="0.5" id="WZi-aJ-VnX"/>
                                     <constraint firstItem="UlX-co-yC0" firstAttribute="top" secondItem="bIu-JU-7DW" secondAttribute="bottom" constant="2" id="Wak-OH-ssG"/>
                                     <constraint firstItem="2iW-fX-jD4" firstAttribute="top" secondItem="osH-n7-qe9" secondAttribute="bottom" constant="4" id="afU-n7-8xM"/>
                                     <constraint firstItem="bIu-JU-7DW" firstAttribute="top" secondItem="O3j-nB-gf6" secondAttribute="bottom" constant="4" id="d0P-rq-S46"/>
                                     <constraint firstItem="8KZ-Hg-xnR" firstAttribute="height" secondItem="Zvl-HT-B5U" secondAttribute="height" multiplier="0.9" id="eeJ-HQ-yoT"/>
+                                    <constraint firstItem="DuS-gK-Zda" firstAttribute="centerY" secondItem="Kpj-k2-Wh5" secondAttribute="centerY" id="kNK-FI-kFH"/>
                                     <constraint firstItem="8KZ-Hg-xnR" firstAttribute="centerY" secondItem="Zvl-HT-B5U" secondAttribute="centerY" id="krm-1T-PKn"/>
                                     <constraint firstItem="TYZ-vl-0hP" firstAttribute="centerX" secondItem="2iW-fX-jD4" secondAttribute="centerX" id="lwy-o3-9UH"/>
                                     <constraint firstItem="UlX-co-yC0" firstAttribute="centerX" secondItem="bIu-JU-7DW" secondAttribute="centerX" id="nld-1W-yJp"/>
@@ -311,7 +320,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="namePhonePad" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="namePhonePad" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
                                             <action selector="fileNameEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="5Uh-e0-pXI"/>
                                             <action selector="heightEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="b4D-sU-N9N"/>
@@ -471,6 +480,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addDocument" width="25" height="31"/>
         <image name="settings" width="25.666666030883789" height="26.666666030883789"/>
     </resources>
 </document>

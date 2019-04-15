@@ -8,8 +8,9 @@
 
 import UIKit
 import PDFKit
+import MobileCoreServices
 
-class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
+class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UIDocumentPickerDelegate {
 
     let theme = Theme.theme1
     let defaults = UserDefaults.standard
@@ -19,6 +20,10 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     var multiplier = 2.5
     
     var fileName = "MC"
+    
+    var length = Double()
+    var width = Double()
+    var height = Double()
     
     @IBOutlet weak var previewWindow: UIView!
     @IBOutlet weak var controlsView: UIView!
@@ -48,10 +53,16 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     
     let impact = UIImpactFeedbackGenerator()
     
+    var error: NSError?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //BATCH PROCESSING TEST
+        
+        
+        //MAIN
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tap.numberOfTapsRequired = 1
         previewWindow.addGestureRecognizer(tap)
@@ -68,6 +79,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
         widthTextField.delegate = self
         heightTextField.delegate = self
         fileNameTextField.delegate = self
+        fileNameTextField.autocorrectionType = .no
         scrollView.delegate = self
         
         scrollView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,UIView.AutoresizingMask.flexibleHeight]
@@ -93,6 +105,14 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollView.contentSize = CGSize(width: 5000, height: 5000)
+    }
+    
+    @IBAction func uploadCSVFile(_ sender: Any) {
+        let types: [String] = [kUTTypeCommaSeparatedText as String]
+        let documentPicker = UIDocumentPickerViewController(documentTypes: types, in: .import)
+        documentPicker.delegate = self
+        documentPicker.modalPresentationStyle = .formSheet
+        self.present(documentPicker, animated: true, completion: nil)
     }
     
     @IBAction func generateOutlines(_ sender: Any) {
@@ -133,14 +153,15 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     func drawBoxesWithinPDFView(saveToDocumentsWithFileName fileName: String) {
         
         //Dimension Calculations
-        let lengthNumber = Double(lengthTextField.text ?? "0")
-        let length = (lengthNumber ?? 0) * unit
-        
-        let widthNumber = Double(widthTextField.text ?? "0")
-        let width = (widthNumber ?? 0) * unit
-        
-        let heightNumber = Double(heightTextField.text ?? "0")
-        let height = (heightNumber ?? 0) * unit
+        if let lengthNumber = lengthTextField.text {
+            length = Double(lengthNumber)! * unit
+        }
+        if let widthNumber = widthTextField.text {
+            width = Double(widthNumber)! * unit
+        }
+        if let heightNumber = heightTextField.text {
+            height = Double(heightNumber)! * unit
+        }
         
         let totalWidth = (length * 2) + (width * 2) + 72 + 25
         let totalHeight = height + width + 25
@@ -371,4 +392,126 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
             }
         }
     }
+    
+    //BATCH PROCESSING
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        // you get from the urls parameter the urls from the files selected
+        
+        print(urls[0].absoluteString)
+        
+        if let string = readDataFrom(file: urls[0].absoluteString) {
+            if let items = parseCSV(content: string, encoding: String.Encoding.utf8, error: &error) {
+                self.length = Double(items[0].length)!
+                self.width = Double(items[0].length)!
+                self.height = Double(items[0].width)!
+                
+                print(self.length)
+            }
+        }
+    }
+    
+    func readDataFrom(file:String?)-> String! {
+        
+        if let filepath = file {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                return contents
+            } catch {
+                print(error)
+            }
+        } else {
+            
+        }
+        return nil
+    }
+    
+    func parseCSV (content: String, encoding: String.Encoding, error: NSErrorPointer) -> [(sku:String, length:String, width: String, height:String)]? {
+        
+        // Load the CSV file and parse it
+        
+        let delimiter = ","
+        let content = content
+        var items:[(sku:String, length:String, width: String, height:String)]?
+        items = []
+        
+        let lines:[String] = content.components(separatedBy: NSCharacterSet.newlines) as [String]
+        
+        for line in lines {
+            
+            var values:[String] = []
+            
+            if line != "" {
+                
+                // For a line with double quotes
+                
+                // we use NSScanner to perform the parsing
+                
+                if line.range(of: "\"") != nil {
+                    
+                    var textToScan:String = line
+                    
+                    var value:NSString?
+                    
+                    var textScanner:Scanner = Scanner(string: textToScan)
+                    
+                    while textScanner.string != "" {
+                        
+                        if (textScanner.string as NSString).substring(to: 1) == "\"" {
+                            
+                            textScanner.scanLocation += 1
+                            
+                            textScanner.scanUpTo("\"", into: &value)
+                            
+                            textScanner.scanLocation += 1
+                            
+                        } else {
+                            
+                            textScanner.scanUpTo(delimiter, into: &value)
+                            
+                        }
+                        
+                        // Store the value into the values array
+                        
+                        values.append(value! as String)
+                        
+                        // Retrieve the unscanned remainder of the string
+                        
+                        if textScanner.scanLocation < textScanner.string.count {
+                            
+                            textToScan = (textScanner.string as NSString).substring(from: textScanner.scanLocation + 1)
+                            
+                        } else {
+                            
+                            textToScan = ""
+                            
+                        }
+                        
+                        textScanner = Scanner(string: textToScan)
+                        
+                    }
+                    
+                    // For a line without double quotes, we can simply separate the string
+                    
+                    // by using the delimiter (e.g. comma)
+                    
+                } else  {
+                    
+                    values = line.components(separatedBy: delimiter)
+                    
+                }
+                
+                // Put the values into the tuple and add it to the items array
+                
+                let item = (sku: values[0], length: values[1], width: values[2], height: values[3])
+                
+                items?.append(item)
+                
+            }
+            
+        }
+        
+        return items
+    }
+    
 }
