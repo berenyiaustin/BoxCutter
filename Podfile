@@ -7,7 +7,7 @@ target 'BoxCutter' do
 
   # Pods for BoxCutter
 
-pod 'SVGgh'
+pod 'BarCodeKit'
 
   target 'BoxCutterTests' do
     inherit! :search_paths

@@ -9,10 +9,11 @@
 import UIKit
 import MobileCoreServices
 import CoreImage
+import BarCodeKit
 
 class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate, UIDocumentPickerDelegate {
-
-    var items:[(sku:String, length:String, width:String, height:String, asin:String, itemName:String)]?
+    
+    var items:[(sku:String, length:String, width:String, height:String, upc:String, asin:String, itemName:String)]?
     
     var generatingFromFile = false
     
@@ -23,9 +24,12 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     var unit = 72.00
     var multiplier = 2.5
     
+    let tabWidth = 72.00
+    
     var fileName = "MC"
     var itemName = "(ITEM NAME)"
     var asin = "(ASIN)"
+    var upc = "0000000000000"
     
     var length = Double()
     var width = Double()
@@ -64,8 +68,6 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        //upcImageView.image = MainViewController.fromString(string: "855020001670")
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tap.numberOfTapsRequired = 1
@@ -136,6 +138,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
                 drawBoxesWithinPDFView(lengthFromFile: nil,
                                        widthFromFile: nil,
                                        heightFromFile: nil,
+                                       upc: nil,
                                        asin: nil,
                                        itemName: nil,
                                        saveToDocumentsWithFileName: "\(fileName).pdf")
@@ -143,6 +146,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
                 drawBoxesWithinPDFView(lengthFromFile: nil,
                                        widthFromFile: nil,
                                        heightFromFile: nil,
+                                       upc: nil,
                                        asin: nil,
                                        itemName: nil,
                                        saveToDocumentsWithFileName: "\(fileName).pdf")
@@ -156,7 +160,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
         }
     }
     
-    func batchGenerateOutlinesFor(items: [(sku:String, length:String, width:String, height:String, asin:String, itemName:String)]) {
+    func batchGenerateOutlinesFor(items: [(sku:String, length:String, width:String, height:String, upc:String, asin:String, itemName:String)]) {
         
         clearDiskCache()
         
@@ -170,12 +174,14 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
             let length = Double(item.length)
             let width = Double(item.width)
             let height = Double(item.height)
+            self.upc = item.upc
             self.asin = item.asin
             self.itemName = item.itemName
             
             drawBoxesWithinPDFView(lengthFromFile: length,
                                    widthFromFile: width,
                                    heightFromFile: height,
+                                   upc: upc,
                                    asin: asin,
                                    itemName: itemName,
                                    saveToDocumentsWithFileName: "\(fileName).pdf")
@@ -203,6 +209,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     func drawBoxesWithinPDFView(lengthFromFile: Double?,
                                 widthFromFile: Double?,
                                 heightFromFile: Double?,
+                                upc: String?,
                                 asin: String?,
                                 itemName: String?,
                                 saveToDocumentsWithFileName: String) {
@@ -233,7 +240,6 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
         
         let totalWidth = (length * 2) + (width * 2) + 72 + 25
         let totalHeight = height + width + 25
-        let tabWidth = 72.00
         
         let pageRect = CGRect(x: 0, y: 0, width: totalWidth, height: totalHeight)
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect)
@@ -337,14 +343,38 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
             
             itemHeader.append(itemName)
             itemHeader.append(exportInfo)
-            itemHeader.draw(in: faceB.insetBy(dx: 35, dy: 20))
-            itemHeader.draw(in: faceD.insetBy(dx: 35, dy: 20))
+            itemHeader.draw(in: faceB.insetBy(dx: CGFloat(tabWidth), dy: CGFloat(tabWidth)))
+            itemHeader.draw(in: faceD.insetBy(dx: CGFloat(tabWidth), dy: CGFloat(tabWidth)))
             
             if let warning = self.defaults.string(forKey: "cutWarningText") {
-                drawRotatedWarningText(warning, at: CGPoint(x: faceAtop.size.width/2 + CGFloat(tabWidth), y: 0), angle: 180)
-                drawRotatedWarningText(warning, at: CGPoint(x: faceAbottom.size.width/2 + CGFloat(tabWidth), y: CGFloat(width + height)), angle: 0)
-                drawRotatedWarningText(warning, at: CGPoint(x: CGFloat(tabWidth + length + width) + faceCtop.size.width/2, y: 0), angle: 180)
-                drawRotatedWarningText(warning, at: CGPoint(x: CGFloat(tabWidth + length + width) + faceCbottom.size.width/2, y: CGFloat(width + height)), angle: 0)
+                let warningFont = UIFont(name: "HelveticaNeue-Bold", size: 16)!
+                drawRotatedText(warning, at: CGPoint(x: faceAtop.size.width/2 + CGFloat(tabWidth), y: 0), angle: 180, font: warningFont)
+                drawRotatedText(warning, at: CGPoint(x: faceAbottom.size.width/2 + CGFloat(tabWidth), y: CGFloat(width + height)), angle: 0, font: warningFont)
+                drawRotatedText(warning, at: CGPoint(x: CGFloat(tabWidth + length + width) + faceCtop.size.width/2, y: 0), angle: 180, font: warningFont)
+                drawRotatedText(warning, at: CGPoint(x: CGFloat(tabWidth + length + width) + faceCbottom.size.width/2, y: CGFloat(width + height)), angle: 0, font: warningFont)
+            }
+            
+            //Add UPC Label
+            
+            let barCodeOptions = [
+                BCKCodeDrawingBarScaleOption: NSNumber(value: 1),
+                BCKCodeDrawingCaptionFontNameOption: "Helvetica",
+                BCKCodeDrawingFillEmptyQuietZonesOption: true,
+                BCKCodeDrawingBarcodeHasQuiteZones: true,
+                BCKCodeDrawingReduceBleedOption: false,
+                BCKCodeDrawingPrintCaptionOption: true,
+                BCKCodeDrawingSizeHeightOption: 80,
+                BCKCodeDrawingMarkerBarsOverlapCaptionPercentOption: 0.5,
+                BCKCodeDrawingShowCheckDigitsOption: false
+                ] as [String : Any]
+            do {
+                let barCode = try BCKUPCACode(content: upc)
+                let barCodeImage = UIImageView()
+                barCodeImage.image = UIImage(barCode: barCode, options: barCodeOptions)
+                drawRotatedGraphic(barCodeImage.image!, at: CGPoint(x:CGFloat(tabWidth + 100), y: CGFloat(width/2 + height - 100)), angle: 0)
+                
+            } catch {
+                print(error)
             }
         }
         
@@ -381,15 +411,16 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
         c.restoreGState()
     }
     
-    func drawRotatedWarningText(_ text: String, at p: CGPoint, angle: CGFloat) {
+    func drawRotatedText(_ text: String, at p: CGPoint, angle: CGFloat, font: UIFont) {
         // Draw text centered on the point, rotated by an angle in degrees moving clockwise.
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
+        let font = font
         
         let attributes = [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 16),
+            NSAttributedString.Key.font: font,
             NSAttributedString.Key.foregroundColor: UIColor.black
         ]
         let textSize = text.size(withAttributes: attributes as [NSAttributedString.Key : Any])
@@ -400,6 +431,24 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
         c.rotate(by: angle * .pi / 180)
         // Draw the text centered at the point.
         text.draw(at: CGPoint(x: -textSize.width / 2, y: (-textSize.height * 2) + 10), withAttributes: attributes as [NSAttributedString.Key : Any])
+        // Restore the original coordinate system.
+        c.restoreGState()
+    }
+    
+    func drawRotatedGraphic(_ image: UIImage, at p: CGPoint, angle: CGFloat) {
+        // Draw text centered on the point, rotated by an angle in degrees moving clockwise.
+        
+        let c = UIGraphicsGetCurrentContext()!
+        c.saveGState()
+        // Translate the origin to the drawing location and rotate the coordinate system.
+        c.translateBy(x: p.x, y: p.y)
+        c.rotate(by: angle * .pi / 180)
+        // Draw the text centered at the point.
+        
+        let labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
+        
+        image.draw(at: CGPoint(x: image.size.width / 2, y: (-image.size.height * 2) + 10))
+        drawRotatedText("Designed in the USA, Made in China", at: CGPoint(x: image.size.width / 2 + 57, y: -image.size.height + 30), angle: 0, font: labelFont)
         // Restore the original coordinate system.
         c.restoreGState()
     }
@@ -547,7 +596,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    func parseCSV (content: String, encoding: String.Encoding, error: NSErrorPointer) -> [(sku:String, length:String, width:String, height:String, asin:String, itemName:String)]? {
+    func parseCSV (content: String, encoding: String.Encoding, error: NSErrorPointer) -> [(sku:String, length:String, width:String, height:String, upc:String, asin:String, itemName:String)]? {
         
         // Load the CSV file and parse it
         
@@ -623,7 +672,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
                 
                 // Put the values into the tuple and add it to the items array
                 
-                let item = (sku: values[0], length: values[1], width: values[2], height: values[3], asin: values[4], itemName: values[5])
+                let item = (sku: values[0], length: values[1], width: values[2], height: values[3], upc: values[4], asin: values[5], itemName: values[6])
                 
                 items?.append(item)
                 

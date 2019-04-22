@@ -4,28 +4,28 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-BoxCutter.xcscheme</key>
+		<key>BarCodeKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Pods-BoxCutterTests.xcscheme</key>
+		<key>Pods-BoxCutter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Pods-BoxCutterUITests.xcscheme</key>
+		<key>Pods-BoxCutterTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>SVGgh.xcscheme</key>
+		<key>Pods-BoxCutterUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

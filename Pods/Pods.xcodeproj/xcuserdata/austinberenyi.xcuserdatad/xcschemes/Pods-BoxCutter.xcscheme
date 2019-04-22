@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91C970A3AB2ED124DA748468BB824283"
+               BlueprintIdentifier = "D0C4B09795E6026AAC605F77C791B835"
                BuildableName = "Pods_BoxCutter.framework"
                BlueprintName = "Pods-BoxCutter"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91C970A3AB2ED124DA748468BB824283"
+            BlueprintIdentifier = "D0C4B09795E6026AAC605F77C791B835"
             BuildableName = "Pods_BoxCutter.framework"
             BlueprintName = "Pods-BoxCutter"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -349,13 +349,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoxCutter/Pods-BoxCutter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SVGgh/SVGgh.framework",
+				"${BUILT_PRODUCTS_DIR}/BarCodeKit/BarCodeKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGgh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BarCodeKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
