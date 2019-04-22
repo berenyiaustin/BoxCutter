@@ -179,7 +179,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-k2-Wh5">
-                                        <rect key="frame" x="372.33333333333331" y="16" width="25.666666666666686" height="26.666666666666671"/>
+                                        <rect key="frame" x="362.33333333333331" y="15.999999999999996" width="35.666666666666686" height="34.666666666666657"/>
                                         <color key="tintColor" red="0.44599398817611041" green="0.44595305543470237" blue="0.44854775111969203" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" image="settings"/>
                                         <connections>
@@ -187,7 +187,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuS-gK-Zda">
-                                        <rect key="frame" x="24" y="14" width="25" height="31"/>
+                                        <rect key="frame" x="24" y="18" width="25" height="31"/>
                                         <state key="normal" image="addDocument"/>
                                         <connections>
                                             <action selector="uploadCSVFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y2O-Pf-eou"/>
@@ -218,23 +218,6 @@
                                     <constraint firstItem="nC9-5Q-HxM" firstAttribute="centerX" secondItem="CxP-a4-k6O" secondAttribute="centerX" id="zbS-7b-AFi"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="WYT-Hz-2Ka">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mu4-vb-3qA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="mu4-vb-3qA" firstAttribute="centerY" secondItem="WYT-Hz-2Ka" secondAttribute="centerY" id="2Nw-40-kyt"/>
-                                    <constraint firstItem="mu4-vb-3qA" firstAttribute="top" secondItem="WYT-Hz-2Ka" secondAttribute="top" id="KEo-ip-Xm5"/>
-                                    <constraint firstAttribute="trailing" secondItem="mu4-vb-3qA" secondAttribute="trailing" id="VJf-Jv-fFo"/>
-                                    <constraint firstItem="mu4-vb-3qA" firstAttribute="centerX" secondItem="WYT-Hz-2Ka" secondAttribute="centerX" id="XcA-MO-Frg"/>
-                                    <constraint firstItem="mu4-vb-3qA" firstAttribute="leading" secondItem="WYT-Hz-2Ka" secondAttribute="leading" id="f3S-Cr-Ij9"/>
-                                    <constraint firstAttribute="bottom" secondItem="mu4-vb-3qA" secondAttribute="bottom" id="h5T-MM-x85"/>
-                                </constraints>
-                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8N-qC-XCM">
                                 <rect key="frame" x="0.0" y="463.66666666666674" width="414" height="272.33333333333326"/>
                                 <subviews>
@@ -322,7 +305,6 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="namePhonePad" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <action selector="fileNameEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="5Uh-e0-pXI"/>
                                             <action selector="heightEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="b4D-sU-N9N"/>
                                         </connections>
                                     </textField>
@@ -351,23 +333,14 @@
                             <constraint firstItem="j8N-qC-XCM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3d7-Ex-reC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j8N-qC-XCM" secondAttribute="bottom" id="5kd-xd-lcM"/>
                             <constraint firstItem="Kpj-k2-Wh5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="7ms-3s-r6f"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WYT-Hz-2Ka" secondAttribute="bottom" id="AWP-fH-FQm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CxP-a4-k6O" secondAttribute="trailing" id="P8r-g2-m0Q"/>
                             <constraint firstItem="j8N-qC-XCM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PT7-0o-4yn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kpj-k2-Wh5" secondAttribute="trailing" constant="16" id="QXg-mh-TWG"/>
-                            <constraint firstItem="WYT-Hz-2Ka" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Soa-E2-iJh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WYT-Hz-2Ka" secondAttribute="trailing" id="mtb-Qn-75s"/>
-                            <constraint firstItem="WYT-Hz-2Ka" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nqr-8C-IoR"/>
                             <constraint firstItem="j8N-qC-XCM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.37" id="otx-5I-bOr"/>
                             <constraint firstItem="j8N-qC-XCM" firstAttribute="top" secondItem="CxP-a4-k6O" secondAttribute="bottom" id="sYV-jH-YZz"/>
                             <constraint firstItem="CxP-a4-k6O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u6c-tR-iL6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="WYT-Hz-2Ka"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="RcU-RT-zNC"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -386,7 +359,6 @@
                         <outlet property="mockBWidthConstraint" destination="hku-9h-IR5" id="glx-Xw-DfU"/>
                         <outlet property="previewLabel" destination="pRf-gU-RUe" id="Brx-0S-2dV"/>
                         <outlet property="previewWindow" destination="CxP-a4-k6O" id="S15-z4-ALg"/>
-                        <outlet property="scrollView" destination="WYT-Hz-2Ka" id="JIF-jz-mle"/>
                         <outlet property="unitsLabel" destination="HcO-DY-dSG" id="ES7-Os-Qed"/>
                         <outlet property="unitsSwitch" destination="rQC-zb-gUS" id="o7o-6M-g7J"/>
                         <outlet property="widthTextField" destination="2Dx-UU-IH1" id="Y5a-L2-gna"/>
@@ -481,6 +453,6 @@
     </scenes>
     <resources>
         <image name="addDocument" width="25" height="31"/>
-        <image name="settings" width="25.666666030883789" height="26.666666030883789"/>
+        <image name="settings" width="35.666667938232422" height="34.666667938232422"/>
     </resources>
 </document>

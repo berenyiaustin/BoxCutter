@@ -1,16 +1,16 @@
 PODS:
-  - SVGgh (1.9.2)
+  - BarCodeKit (1.3.2)
 
 DEPENDENCIES:
-  - SVGgh
+  - BarCodeKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - SVGgh
+    - BarCodeKit
 
 SPEC CHECKSUMS:
-  SVGgh: 648b7700f0f219c6f4d39bb94a5ca7e1a109a1c3
+  BarCodeKit: d62e43b642a848686c0cdd8b36684eeb7693d495
 
-PODFILE CHECKSUM: 525afb3153bb93bb483b2c8cad9f62e79a1d7166
+PODFILE CHECKSUM: dcd667f4708540acf127bcc203e83679efb1b6a2
 
 COCOAPODS: 1.5.3
