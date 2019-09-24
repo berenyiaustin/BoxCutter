@@ -191,6 +191,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
             
             let vc = UIActivityViewController(activityItems: [docURL as URL], applicationActivities: nil)
             self.present(vc, animated: true, completion: nil)
+            print("Share Sheet presented.")
         } else {
             print("There was an error.")
         }
@@ -316,35 +317,35 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
             
             //Add Text
             
-            let itemHeaderFont = UIFont(name: "HelveticaNeue-Bold", size: 56)
-            let itemHeaderAttributes = [
-                NSAttributedString.Key.font: itemHeaderFont,
-                NSAttributedString.Key.foregroundColor: UIColor.black
-            ]
-            
-            let itemNameFont = UIFont(name: "HelveticaNeue", size: 12)
-            let itemNameAttributes = [
-                NSAttributedString.Key.font: itemNameFont,
-                NSAttributedString.Key.foregroundColor: UIColor.black
-            ]
-            
-            let exportInfoFont = UIFont(name: "HelveticaNeue", size: 18)
-            let exportInfoAttributes = [
-                NSAttributedString.Key.font: exportInfoFont,
-                NSAttributedString.Key.foregroundColor: UIColor.black
-            ]
-            
-            let shortenedName = self.fileName.components(separatedBy: " ")
-            let itemNameUppercased = self.itemName.uppercased()
-            
-            let itemHeader = NSMutableAttributedString(string: "ITEM #: \(shortenedName[0])", attributes: itemHeaderAttributes as [NSAttributedString.Key : Any])
-            let itemName = NSMutableAttributedString(string: "\nITEM NAME: \(itemNameUppercased)", attributes: itemNameAttributes as [NSAttributedString.Key : Any])
-            let exportInfo = NSMutableAttributedString(string: "\n\n\nASIN: \(self.asin)\nQTY: \nPO#:\nNET WEIGHT (KG):\nGROSS WEIGHT (KG):\nCARTON DIMS:\nMADE IN CHINA", attributes: exportInfoAttributes as [NSAttributedString.Key : Any])
-            
-            itemHeader.append(itemName)
-            itemHeader.append(exportInfo)
-            itemHeader.draw(in: faceB.insetBy(dx: CGFloat(tabWidth), dy: CGFloat(tabWidth)))
-            itemHeader.draw(in: faceD.insetBy(dx: CGFloat(tabWidth), dy: CGFloat(tabWidth)))
+//            let itemHeaderFont = UIFont(name: "HelveticaNeue-Bold", size: 56)
+//            let itemHeaderAttributes = [
+//                NSAttributedString.Key.font: itemHeaderFont,
+//                NSAttributedString.Key.foregroundColor: UIColor.black
+//            ]
+//
+//            let itemNameFont = UIFont(name: "HelveticaNeue", size: 12)
+//            let itemNameAttributes = [
+//                NSAttributedString.Key.font: itemNameFont,
+//                NSAttributedString.Key.foregroundColor: UIColor.black
+//            ]
+//
+//            let exportInfoFont = UIFont(name: "HelveticaNeue", size: 18)
+//            let exportInfoAttributes = [
+//                NSAttributedString.Key.font: exportInfoFont,
+//                NSAttributedString.Key.foregroundColor: UIColor.black
+//            ]
+//
+//            let shortenedName = self.fileName.components(separatedBy: " ")
+//            let itemNameUppercased = self.itemName.uppercased()
+//
+//            let itemHeader = NSMutableAttributedString(string: "ITEM #: \(shortenedName[0])", attributes: itemHeaderAttributes as [NSAttributedString.Key : Any])
+//            let itemName = NSMutableAttributedString(string: "\nITEM NAME: \(itemNameUppercased)", attributes: itemNameAttributes as [NSAttributedString.Key : Any])
+//            let exportInfo = NSMutableAttributedString(string: "\n\n\nASIN: \(self.asin)\nQTY: \nPO#:\nNET WEIGHT (KG):\nGROSS WEIGHT (KG):\nCARTON DIMS:\nMADE IN CHINA", attributes: exportInfoAttributes as [NSAttributedString.Key : Any])
+//
+//            itemHeader.append(itemName)
+//            itemHeader.append(exportInfo)
+//            itemHeader.draw(in: faceB.insetBy(dx: CGFloat(tabWidth), dy: CGFloat(tabWidth)))
+//            itemHeader.draw(in: faceD.insetBy(dx: CGFloat(tabWidth), dy: CGFloat(tabWidth)))
             
             if let warning = self.defaults.string(forKey: "cutWarningText") {
                 let warningFont = UIFont(name: "HelveticaNeue-Bold", size: 16)!
@@ -356,26 +357,26 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
             
             //Add UPC Label
             
-            let barCodeOptions = [
-                BCKCodeDrawingBarScaleOption: NSNumber(value: 1),
-                BCKCodeDrawingCaptionFontNameOption: "Helvetica",
-                BCKCodeDrawingFillEmptyQuietZonesOption: true,
-                BCKCodeDrawingBarcodeHasQuiteZones: true,
-                BCKCodeDrawingReduceBleedOption: false,
-                BCKCodeDrawingPrintCaptionOption: true,
-                BCKCodeDrawingSizeHeightOption: 80,
-                BCKCodeDrawingMarkerBarsOverlapCaptionPercentOption: 0.5,
-                BCKCodeDrawingShowCheckDigitsOption: false
-                ] as [String : Any]
-            do {
-                let barCode = try BCKUPCACode(content: upc)
-                let barCodeImage = UIImageView()
-                barCodeImage.image = UIImage(barCode: barCode, options: barCodeOptions)
-                drawRotatedGraphic(barCodeImage.image!, at: CGPoint(x:CGFloat(tabWidth + 100), y: CGFloat(width/2 + height - 100)), angle: 0)
-                
-            } catch {
-                print(error)
-            }
+//            let barCodeOptions = [
+//                BCKCodeDrawingBarScaleOption: NSNumber(value: 1),
+//                BCKCodeDrawingCaptionFontNameOption: "Helvetica",
+//                BCKCodeDrawingFillEmptyQuietZonesOption: true,
+//                BCKCodeDrawingBarcodeHasQuiteZones: true,
+//                BCKCodeDrawingReduceBleedOption: false,
+//                BCKCodeDrawingPrintCaptionOption: true,
+//                BCKCodeDrawingSizeHeightOption: 80,
+//                BCKCodeDrawingMarkerBarsOverlapCaptionPercentOption: 0.5,
+//                BCKCodeDrawingShowCheckDigitsOption: false
+//                ] as [String : Any]
+//            do {
+//                let barCode = try BCKUPCACode(content: upc)
+//                let barCodeImage = UIImageView()
+//                barCodeImage.image = UIImage(barCode: barCode, options: barCodeOptions)
+//                drawRotatedGraphic(barCodeImage.image!, at: CGPoint(x:CGFloat(tabWidth + 100), y: CGFloat(width/2 + height - 100)), angle: 0)
+//                
+//            } catch {
+//                print(error)
+//            }
         }
         
         var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last
