@@ -91,7 +91,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationController?.navigationBar.barStyle = .blackOpaque
+        self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.backgroundColor = theme.backgroundColor
         self.navigationController?.navigationBar.barTintColor = theme.backgroundColor
         self.navigationController?.navigationBar.tintColor = .white
@@ -152,11 +152,23 @@ class MainViewController: UIViewController, UITextFieldDelegate, UIScrollViewDel
                                        saveToDocumentsWithFileName: "\(fileName).pdf")
             }
             
-            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let filePath = (documentsDirectory as NSString).appendingPathComponent("\(fileName).pdf") as String
-            let url = NSURL(fileURLWithPath: filePath)
-            let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-            self.present(vc, animated: true, completion: nil)
+            
+            
+            #if targetEnvironment(macCatalyst)
+                print("UIKit running on macOS")
+            let str = "Hello boxcutter"
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
+            let fileURL = documentsURL.appendingPathComponent("boxCutter.pdf")
+            try! str.write(to: fileURL!, atomically: true, encoding: String.Encoding.utf8)
+            #else
+                let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+                let filePath = (documentsDirectory as NSString).appendingPathComponent("\(fileName).pdf") as String
+                let url = NSURL(fileURLWithPath: filePath)
+                let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                self.present(vc, animated: true, completion: nil)
+            #endif
+            
+            
         }
     }
     

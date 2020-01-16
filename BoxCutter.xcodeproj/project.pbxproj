@@ -55,6 +55,7 @@
 		90096038225E884C00456885 /* BoxCutterSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxCutterSwitch.swift; sourceTree = "<group>"; };
 		9009603A225E9C1500456885 /* TrapezoidFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapezoidFaceView.swift; sourceTree = "<group>"; };
 		9009603E225FCBA700456885 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		902EA3CA2350DA0D00B6A106 /* BoxCutter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoxCutter.entitlements; sourceTree = "<group>"; };
 		90366C762252EFFC00E7305D /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		9038EC202261885C00FC39DD /* test sheet.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "test sheet.csv"; sourceTree = "<group>"; };
 		90804D7D2252B3BC00394072 /* BoxCutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxCutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +129,7 @@
 		90804D7F2252B3BC00394072 /* BoxCutter */ = {
 			isa = PBXGroup;
 			children = (
+				902EA3CA2350DA0D00B6A106 /* BoxCutter.entitlements */,
 				90804D802252B3BC00394072 /* AppDelegate.swift */,
 				9009603E225FCBA700456885 /* SettingsViewController.swift */,
 				90804D822252B3BC00394072 /* MainViewController.swift */,
@@ -596,7 +598,9 @@
 			baseConfigurationReference = 49C9D88F9B44CBDE8ED18110 /* Pods-BoxCutter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BoxCutter/BoxCutter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 9V8XX88M3P;
 				INFOPLIST_FILE = BoxCutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -605,6 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lyra.BoxCutter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -615,7 +620,9 @@
 			baseConfigurationReference = B7E05C94171C60A04E85F502 /* Pods-BoxCutter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BoxCutter/BoxCutter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 9V8XX88M3P;
 				INFOPLIST_FILE = BoxCutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -624,6 +631,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lyra.BoxCutter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

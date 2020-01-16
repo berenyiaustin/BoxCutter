@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -255,11 +255,11 @@
 		8D5E20D315ED1877667E005BEFA52C3D /* BCKCode39FullASCII.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BCKCode39FullASCII.h; path = Core/Source/BCKCode39FullASCII.h; sourceTree = "<group>"; };
 		8F89376A0EA8EC2D0939438374C7E058 /* UIImage+BarCodeKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+BarCodeKit.h"; path = "Core/Source/iOS/UIImage+BarCodeKit.h"; sourceTree = "<group>"; };
 		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		949B653373EB5C388AA7CBF827E1F665 /* BCKBarString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BCKBarString.m; path = Core/Source/BCKBarString.m; sourceTree = "<group>"; };
 		96C247E708FDFFF0F6D11AFC580C9F72 /* BCKMSICode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BCKMSICode.h; path = Core/Source/BCKMSICode.h; sourceTree = "<group>"; };
 		9827C11BB7F3550367128743BABA17CF /* Pods-BoxCutterUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BoxCutterUITests-frameworks.sh"; sourceTree = "<group>"; };
-		98A0C14E9E3A566ADBF9A940A7DDF807 /* Pods_BoxCutter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BoxCutter.framework; path = "Pods-BoxCutter.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A0C14E9E3A566ADBF9A940A7DDF807 /* Pods_BoxCutter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoxCutter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A98D821D9C0C3DE7BA41844B480552 /* BCKMSIContentCodeCharacter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BCKMSIContentCodeCharacter.m; path = Core/Source/BCKMSIContentCodeCharacter.m; sourceTree = "<group>"; };
 		996CEFD2DD01BAC0DE8E2B6F2C89752A /* NSString+BCKCode128Helpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+BCKCode128Helpers.h"; path = "Core/Source/NSString+BCKCode128Helpers.h"; sourceTree = "<group>"; };
 		9A1B4AB6ED665858B2982B327079C609 /* BCKCode93ContentCodeCharacter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BCKCode93ContentCodeCharacter.m; path = Core/Source/BCKCode93ContentCodeCharacter.m; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		CA82C2B498D178E430979CB102BE5AB2 /* Pods-BoxCutter-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BoxCutter-acknowledgements.plist"; sourceTree = "<group>"; };
 		CC805E5B8CE6894363DBA276403985B6 /* BCKCode39ContentCodeCharacter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BCKCode39ContentCodeCharacter.h; path = Core/Source/BCKCode39ContentCodeCharacter.h; sourceTree = "<group>"; };
 		CF832D1984906B6BBBA9D0899ABD5D34 /* Pods-BoxCutterTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BoxCutterTests.modulemap"; sourceTree = "<group>"; };
-		D307DCF69556322C7ABF0D2BF679242E /* Pods_BoxCutterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BoxCutterUITests.framework; path = "Pods-BoxCutterUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D307DCF69556322C7ABF0D2BF679242E /* Pods_BoxCutterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoxCutterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E722CBF1B4355068D44992719C3995 /* BCKGTINSupplementCodeCharacter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BCKGTINSupplementCodeCharacter.m; path = Core/Source/BCKGTINSupplementCodeCharacter.m; sourceTree = "<group>"; };
 		DACF675524D371A57363DA32BDC50418 /* BCKFacingIdentificationMarkCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BCKFacingIdentificationMarkCode.h; path = Core/Source/BCKFacingIdentificationMarkCode.h; sourceTree = "<group>"; };
 		DC00C88CF5EE57F078C68486E14A10A4 /* BCKPOSTNETContentCodeCharacter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BCKPOSTNETContentCodeCharacter.m; path = Core/Source/BCKPOSTNETContentCodeCharacter.m; sourceTree = "<group>"; };
@@ -318,8 +318,8 @@
 		EC419BD2BDFA4205922F2BFBF9BC0968 /* BCKEAN5SupplementCode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BCKEAN5SupplementCode.m; path = Core/Source/BCKEAN5SupplementCode.m; sourceTree = "<group>"; };
 		F3097EC4F8DD792E05DBEA5CF016CDE6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4808E4F2F1EAB9DDE723AA0D95B304C /* BCKGTINSupplementDataCodeCharacter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BCKGTINSupplementDataCodeCharacter.h; path = Core/Source/BCKGTINSupplementDataCodeCharacter.h; sourceTree = "<group>"; };
-		F81D3B5ECC49E053E86C77A30CFFCC65 /* Pods_BoxCutterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BoxCutterTests.framework; path = "Pods-BoxCutterTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F92671B6A8CA1571E9D03337B684F151 /* BarCodeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BarCodeKit.framework; path = BarCodeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81D3B5ECC49E053E86C77A30CFFCC65 /* Pods_BoxCutterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoxCutterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92671B6A8CA1571E9D03337B684F151 /* BarCodeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BarCodeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2256E7E6260A3194A55D6323EB2963 /* Pods-BoxCutter-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BoxCutter-frameworks.sh"; sourceTree = "<group>"; };
 		FD3111C6F13BB41527B6E3694F468425 /* BCKCode39Code.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BCKCode39Code.m; path = Core/Source/BCKCode39Code.m; sourceTree = "<group>"; };
 		FD92000BBBAF72660C7255A1C2B15CD3 /* Pods-BoxCutterTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BoxCutterTests-dummy.m"; sourceTree = "<group>"; };
@@ -531,7 +531,6 @@
 				6DD68F13F6D294E7EC16161BBBEE48A3 /* UIImage+BarCodeKit.m */,
 				E768375F9454F0BBDECEFE5D41D720CF /* Support Files */,
 			);
-			name = BarCodeKit;
 			path = BarCodeKit;
 			sourceTree = "<group>";
 		};
@@ -793,14 +792,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 04B0157C0170DD37FBA106A792D16E3F /* Products */;
@@ -979,11 +979,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-BoxCutter/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BoxCutter/Pods-BoxCutter.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1017,11 +1013,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-BoxCutter/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BoxCutter/Pods-BoxCutter.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1056,11 +1048,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-BoxCutterTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BoxCutterTests/Pods-BoxCutterTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1094,11 +1082,7 @@
 				INFOPLIST_FILE = "Target Support Files/BarCodeKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BarCodeKit/BarCodeKit.modulemap";
 				PRODUCT_MODULE_NAME = BarCodeKit;
 				PRODUCT_NAME = BarCodeKit;
@@ -1117,6 +1101,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1190,11 +1175,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-BoxCutterUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BoxCutterUITests/Pods-BoxCutterUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1228,11 +1209,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-BoxCutterTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BoxCutterTests/Pods-BoxCutterTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1266,11 +1243,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-BoxCutterUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BoxCutterUITests/Pods-BoxCutterUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1304,11 +1277,7 @@
 				INFOPLIST_FILE = "Target Support Files/BarCodeKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BarCodeKit/BarCodeKit.modulemap";
 				PRODUCT_MODULE_NAME = BarCodeKit;
 				PRODUCT_NAME = BarCodeKit;
@@ -1326,6 +1295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
